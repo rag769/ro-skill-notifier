@@ -5,9 +5,8 @@ import tkinter as tk
 import win32gui
 import time
 
-# https://www.youtube.com/watch?v=xzO1786OzLE
-WINDOW_TITLE = "【RO】GHC猫ペア1000点　道中【物理猫】"
-CONFIDENCE = 0.44
+WINDOW_TITLE = "Ragnarok"
+CONFIDENCE = 0.6
 
 
 def main():
@@ -25,7 +24,7 @@ def main():
     height = y2 - y1
 
     root = tk.Tk()
-    root.geometry(f"{width}x{height}+{x1}+{y1}")
+    root.geometry(f"{width-16}x{height}+{x1}+{y1-30}")
     root.attributes("-topmost", True)
     root.wm_attributes("-transparentcolor", "pink")
     tk.Frame(root, background="pink").pack(expand=True, fill=tk.BOTH)
@@ -39,7 +38,7 @@ def main():
             justify=tk.LEFT,
         )
         label.place(
-            x=width // 2, y=height // 2 + 20 * index, width=width // 3, height=20
+            x=width // 2, y=height // 2 + 40 + 20 * index, width=width // 3, height=20
         )
         labels.append(label)
 
@@ -63,7 +62,7 @@ def main():
                         labels[index]["text"] = ""
                     except:
                         pass
-            time.sleep(0.1)
+            time.sleep(0.05)
 
     thread = threading.Thread(target=detector)
     thread.start()
